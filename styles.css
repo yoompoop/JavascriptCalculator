@@ -1,71 +1,70 @@
 button
 {
-
-    width: clamp(50px, 20vw, 100px);
-    height: clamp(50px, 20vw, 100px);
-    font-size: clamp(1.5rem, 5vw, 3rem);
-
+    width:100px;
+    height:100px;
     border-radius: 50%;
-    border:none;
 
-    background-color: blanchedalmond;
-    color:darkblue;
-    font-weight: bold;
+    font-size: 2.5rem;
+    background-color:#2f2f2f;
+    border-color: hsla(0, 0%, 1%, 0.319);
+    border-width: 2px;
+    color:white;
 
-    cursor: pointer;
+    transform: none;
+    transition: transform 100ms ease-out, background-color 200ms ease-in-out;
+
 }
-
-#keys{
+#keys
+{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    padding: 25px;
+    gap:10px;
+    padding:25px;
+    background-color: black;
 }
 
-#calculator{
-    font-family:Arial, Helvetica, sans-serif;
-    background-color:khaki;
-
-    border-radius: 6%;
-    max-width: 500px;
-    overflow: hidden;
-}
-#display
+body
 {
-    width:100%;
-    padding: 5%;
-    font-size: clamp(2rem, 8vw, 5rem);
-    text-align: left;
-    border: none;
-    background-color:rgb(252, 244, 171);
-
-    color:rgb(122, 6, 6);
-    overflow: scroll;
-}
-body{
     margin:0px;
-    display: flex;
+    display:flex;
     justify-content: center;
     align-items: center;
     height:100vh;
-    background-color:rgb(255, 243, 235) ;
-}
-
-button:hover
-{
-    background-color: rgb(253, 211, 148);
-    transform:scale(105%)
 
 }
-button:active
+#display
 {
-    background-color: rgb(255, 213, 150);
-    transform:scale(90%)
+    height: 200px;
+
+    border:none;
+    background-color: black;
+    color:rgb(255, 255, 255);
+    text-align: right;
+
+    padding: 10%;
+    font-size: 2.5rem;
 }
-.operator-btn{
-    background-color: coral;
-}
-.operator-btn:hover
+#calculator
 {
-    background-color: rgb(209, 84, 38);
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 7%;
+    max-width: 500px;
+    overflow: hidden;
+}
+.ActionButton{
+    background-color: #5A5A5A;
+}
+.OperatorButton{
+    background-color: #F09133;
+}
+
+button:active{
+    transform: scale(110%);
+    background-color: #afadad;
+}
+.OperatorButton:active{
+    background-color: #f7a166;
+}
+.ActionButton:active{
+    background-color: #7c7a7a;
 }

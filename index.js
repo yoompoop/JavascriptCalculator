@@ -1,32 +1,52 @@
 const display = document.getElementById("display");
 let acceptInput = true;
-function appendToDisplay(input)
+let expression="";
+let justCalculated = false;
+function AppendToDisplay(input, show=null, cont=false)
 {
-    if (acceptInput)
+
+    if (!acceptInput)
     {
-        display.value += input;
+        ClearDisplay();
     }
+    if(justCalculated && !cont)
+    {
+        expression = input;
+        display.textContent = show ?? input;
+    }
+    else
+    {
+        expression += input;
+        display.textContent += show ?? input;
+    }
+    justCalculated = false;
 }
 
-function clearDisplay()
+function CalculateAnswer()
 {
-    display.value = ""
-    acceptInput = true;
-}
-
-function calculate()
-{
+    justCalculated = true;
     try
     {
-        display.value = eval(display.value)
+        display.textContent=eval(expression);
     }
     catch(error)
     {
-        display.value = "Error";
+        display.textContent="Error";
+        expression = "";
         acceptInput = false;
     }
 }
 
-  function backspace() {
-    display.value = display.value.slice(0, -1);
-  }
+function ClearDisplay()
+{
+    justCalculated = false;
+
+    display.textContent="";
+    expression="";
+    acceptInput = true;
+}
+
+function Backspace()
+{
+    display.textContent = display.textContent.slice(0, -1);
+}
